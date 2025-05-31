@@ -1,1 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
 
+int main(){
+	int t,n,a[600001];
+	cin>>t;
+	
+	
+	while(t--){
+		int total=0,now=0;
+		int div=1;
+		cin>>n;
+		
+		for(int i = 1; i<=n; i++){
+			cin>>a[i];
+			total+=a[i];
+		}
+		
+		for(int i = 1; i<n; i++){
+			now+=a[i];
+			div=max(div,__gcd(total-now, now));
+		}
+		
+		cout<<"\n"<<div;
+	}
+	
+	return 0;
+}
